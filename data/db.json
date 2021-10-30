@@ -1,0 +1,24 @@
+{
+    "trips": [
+        {
+            "id": 1,
+            "title": "2 Night stay in Venice",
+            "price": "1995kr"
+        },
+        {
+            "id": 2,
+            "title": "3 Night stay in Paris",
+            "price": "2995kr"
+        },
+        {
+            "id": 3,
+            "title": "4 Night stay in London",
+            "price": "3450kr"
+        },
+        {
+            "id": 4,
+            "title": "3 Night stay in Venice",
+            "price": "3250kr"
+        }
+    ]
+}

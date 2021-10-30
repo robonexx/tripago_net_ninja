@@ -1,0 +1,22 @@
+.trip-list {
+    width: 480px; 
+    margin: 1rem auto;
+}
+
+.trip-list ul {
+    padding: 0;
+}
+
+.trip-list li {
+    border: 1px solid#e3e3ef;
+    box-sizing: border-box;
+    padding: 10px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.trip-list li:hover {
+    background: #121212;
+    border: 1px solid gray;
+}
