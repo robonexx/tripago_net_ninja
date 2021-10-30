@@ -3,22 +3,27 @@
         {
             "id": 1,
             "title": "2 Night stay in Venice",
-            "price": "1995kr"
+            "price": "1995kr",
+            "loc": "europe"
         },
         {
             "id": 2,
             "title": "3 Night stay in Paris",
-            "price": "2995kr"
+            "price": "2995kr",
+            "loc": "europe"
         },
         {
             "id": 3,
             "title": "4 Night stay in London",
-            "price": "3450kr"
+            "price": "3450kr",
+            "loc": "europe"
         },
         {
             "id": 4,
             "title": "3 Night stay in Venice",
-            "price": "3250kr"
+            "price": "3250kr",
+            "loc": "america"
+
         }
     ]
 }
