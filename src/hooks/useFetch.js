@@ -1,25 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-export const useFetch = (url) => {
+export const useFetch = (url, _options) => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const options = useRef(_options)
 
+  useEffect(() => {
+    console.log(options)
+    const controller = new AbortController();
 
-    useEffect(() => {
+    setTimeout(() => {
+      const fetchData = async () => {
+        setIsLoading(true);
 
-        const fetchData = async() => {
-            const res = await fetch(url)
-            const json = await res.json()
+        try {
+          const res = await fetch(url, { signal: controller.signal });
+          if (!res.ok) {
+            throw new Error(res.statusText);
+          }
+          const json = await res.json();
 
-            setData(json)
-         }
-         
-        fetchData()
+          setIsLoading(false);
+          setData(json);
+          setError(null);
+        } catch (err) {
+          if (err.name === 'AbortError') {
+            console.log('the fetch was aborted');
+          } else {
+            setIsLoading(false);
+            setError('Could not fetch data');
+            console.log(err.message);
+          }
+        }
+      };
 
-    }, [url]);
+      fetchData();
+    }, 1000);
 
-    return{ data, isLoading, error }
-}
+    return () => {
+      controller.abort();
+    };
+  }, [url, options]);
 
+  return { data, isLoading, error };
+};
